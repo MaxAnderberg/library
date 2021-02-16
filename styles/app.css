@@ -3,6 +3,13 @@ body{
 }
 
 .grid-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.card-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
