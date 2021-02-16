@@ -13,3 +13,11 @@ body{
     border: 1px solid black; /* temp - remove later */
 }
 
+.add-new-book{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
