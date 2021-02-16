@@ -13,14 +13,24 @@ function addBookToLibrary(book) {
   myLibrary.push(book)
 }
 
+function displayBooks(){
+    return;
+}
+
 // play ground
-const book1 = Object.create(Book)
+const book1 = Object.create(Book.prototype)
 book1.title = "Title of the Tree"
 book1.author = "Max"
 book1.pages = 132
 book1.read = true
 
-console.log(book1)
+const book2 = Object.create(Book.prototype)
+book1.title = "The Three"
+book1.author = "Sam"
+book1.pages = 500
+book1.read = false
 
 addBookToLibrary(book1)
+addBookToLibrary(book2)
+
 console.log(myLibrary)
