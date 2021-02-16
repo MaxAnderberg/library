@@ -1,5 +1,7 @@
+// library, holds all the books
 let myLibrary = [];
 
+// the book constructor
 function Book() {
   this.title = title
   this.author = author
@@ -11,6 +13,7 @@ function addBookToLibrary(book) {
   myLibrary.push(book)
 }
 
+// play ground
 const book1 = Object.create(Book)
 book1.title = "Title of the Tree"
 book1.author = "Max"
