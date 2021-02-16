@@ -1,3 +1,15 @@
 body{
     background-color: #9C6868;
 }
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black; /* temp - remove later */
+}
+
