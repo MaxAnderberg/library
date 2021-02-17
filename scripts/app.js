@@ -44,6 +44,20 @@ book2.read = false
 addBookToLibrary(book1)
 addBookToLibrary(book2)
 
-// console.log(myLibrary)
 
+function createBook(){
+    const book = Object.create(Book.prototype)
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const read = document.getElementById("read").value;
+    book.title = title;
+    book.author = author;
+    book.pages = pages;
+    book.read = read;
+    console.log(title, author, pages, read)
+    addBookToLibrary(book);
+    addBookToTable();
+    document.getElementById("book-form").reset(); // resets the form with default placehold text
+}
 addBookToTable();
