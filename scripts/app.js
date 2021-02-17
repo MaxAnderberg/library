@@ -17,6 +17,16 @@ function displayBooks(){
     return;
 }
 
+function addBookToTable(){
+    let table = document.getElementById("myTable");
+    let row = table.insertRow(-1) // add new row last in table
+
+    for (let i = 0; i < 4; i++) {
+        const cell = row.insertCell(i);
+        cell.innerHTML = "NEW CELL WITH LOOP"
+    }
+}
+addBookToTable();
 // play ground
 const book1 = Object.create(Book.prototype)
 book1.title = "Title of the Tree"
