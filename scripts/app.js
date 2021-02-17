@@ -19,7 +19,6 @@ function displayBooks(){
 
 function addBookToTable(){
     let table = document.getElementById("myTable");
-    
     myLibrary.forEach(element => {
         let row = table.insertRow(-1) // place each book last in table
         // console.log(element)
@@ -28,8 +27,6 @@ function addBookToTable(){
             cell.innerHTML = element[Object.keys(element)[i]]
         }
     });
-
-
 }
 // play ground
 const book1 = Object.create(Book.prototype)
