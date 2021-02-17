@@ -19,14 +19,18 @@ function displayBooks(){
 
 function addBookToTable(){
     let table = document.getElementById("myTable");
-    let row = table.insertRow(-1) // add new row last in table
+    
+    myLibrary.forEach(element => {
+        let row = table.insertRow(-1) // place each book last in table
+        // console.log(element)
+        for (let i = 0; i < 4; i++) {
+            const cell = row.insertCell(i);
+            cell.innerHTML = element[Object.keys(element)[i]]
+        }
+    });
 
-    for (let i = 0; i < 4; i++) {
-        const cell = row.insertCell(i);
-        cell.innerHTML = "NEW CELL WITH LOOP"
-    }
+
 }
-addBookToTable();
 // play ground
 const book1 = Object.create(Book.prototype)
 book1.title = "Title of the Tree"
@@ -35,12 +39,14 @@ book1.pages = 132
 book1.read = true
 
 const book2 = Object.create(Book.prototype)
-book1.title = "The Three"
-book1.author = "Sam"
-book1.pages = 500
-book1.read = false
+book2.title = "The Three"
+book2.author = "Sam"
+book2.pages = 500
+book2.read = false
 
 addBookToLibrary(book1)
 addBookToLibrary(book2)
 
-console.log(myLibrary)
+// console.log(myLibrary)
+
+addBookToTable();
