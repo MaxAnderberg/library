@@ -2,14 +2,30 @@ body{
     background-color: #9C6868;
 }
 
-table{
+#book-table{
     width: 100%;
-    border: 1px solid black;
+    border-collapse: collapse; /* remove the margin around each border */ 
+
 }
 
-td{
-    border: 1px solid blue;
+#book-table td, #book-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+
+#book-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+#book-table tr:nth-child(even){
+    background-color: #ff0000;
 }
+
 
 .add-new-book{
     position: absolute;
