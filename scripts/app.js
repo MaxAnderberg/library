@@ -19,14 +19,16 @@ function displayBooks(){
 
 function addBookToTable(){
     let table = document.getElementById("myTable");
-    myLibrary.forEach(element => {
+    // myLibrary.forEach(element => {
+        const element = myLibrary[myLibrary.length - 1]
+        console.log(element)
         let row = table.insertRow(-1) // place each book last in table
         // console.log(element)
         for (let i = 0; i < 4; i++) {
             const cell = row.insertCell(i);
             cell.innerHTML = element[Object.keys(element)[i]]
         }
-    });
+    // });
 }
 // play ground
 const book1 = Object.create(Book.prototype)
@@ -42,7 +44,9 @@ book2.pages = 500
 book2.read = false
 
 addBookToLibrary(book1)
+addBookToTable();
 addBookToLibrary(book2)
+addBookToTable();
 
 
 function createBook(){
@@ -60,4 +64,3 @@ function createBook(){
     addBookToTable();
     document.getElementById("book-form").reset(); // resets the form with default placehold text
 }
-addBookToTable();
