@@ -18,7 +18,7 @@ function displayBooks(){
 }
 
 function addBookToTable(){
-    let table = document.getElementById("myTable");
+    let table = document.getElementById("book-table");
     // myLibrary.forEach(element => {
         const element = myLibrary[myLibrary.length - 1]
         console.log(element)
