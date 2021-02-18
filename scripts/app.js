@@ -20,8 +20,9 @@ function displayBooks() {
 function addBookToTable() {
     let table = document.getElementById("book-table");
     const element = myLibrary[myLibrary.length - 1]
-    console.log(element)
+    arrayIndex = myLibrary.indexOf(myLibrary[myLibrary.length - 1])
     let row = table.insertRow(-1) // place each book last in table
+    row.setAttribute("libraryIndex",arrayIndex)
     // console.log(element)
     for (let i = 0; i < 4; i++) {
         const cell = row.insertCell(i);
