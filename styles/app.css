@@ -8,9 +8,30 @@ body{
     align-items: center;
 }
 
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 20%; 
+    flex: 1;
+    
+}
+
+label{
+    text-align: left;
+}
+
+.book-container{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    flex: 2;
+
+
+}
+
 #book-table{
     border-collapse: collapse; /* remove the margin around each border */ 
-    width: 70%;
 }
 
 #book-table td, #book-table th {
