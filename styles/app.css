@@ -2,10 +2,15 @@ body{
     background-color: #9C6868;
 }
 
-#book-table{
-    width: 100%;
-    border-collapse: collapse; /* remove the margin around each border */ 
+.content-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#book-table{
+    border-collapse: collapse; /* remove the margin around each border */ 
+    width: 70%;
 }
 
 #book-table td, #book-table th {
