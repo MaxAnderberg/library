@@ -2,6 +2,49 @@ body{
     background-color: #9C6868;
 }
 
+.toggle{
+    /* content: "true"; */
+    background: tomato;
+}
+
+/* .toggle{
+    --width: 40px;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
+
+    display: inline-block;
+}
+
+.toggle_input{
+    display: none;
+}
+.toggle_input:checked ~ .toggle_fill{
+    background: purple;
+}
+.toggle_fill{
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background: #ddd;
+    transition: background 0.2s;
+}
+
+.toggle_fill::after{
+    content: "false";
+    position: absolute;
+    height: var(--height);
+    width: var(--height);
+    background: white;
+    box-sizing: 0 0 10px black;
+    transition: transform 0.2s;
+} */
+
+.toggle_input:checked ~ .toggle_fill::after{
+    content: "true";
+    translate: translateX(var(--height));
+}
+
 .content-container{
     display: flex;
     justify-content: center;

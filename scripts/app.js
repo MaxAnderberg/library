@@ -17,18 +17,18 @@ function displayBooks() {
     return;
 }
 
-function removeBook(book){
+function removeBook(book) {
     removeBookFromLibrary(book);
     removeBookFromTable(book);
 }
 
-function removeBookFromLibrary(book){
+function removeBookFromLibrary(book) {
     myLibrary.splice(book, 1);
 }
 
-function removeBookFromTable(book){
+function removeBookFromTable(book) {
     let table = document.getElementById("book-table");
-    table.deleteRow(parseInt(book)+1) // table head is 0, to remove we add one to the table index and remove that row
+    table.deleteRow(parseInt(book) + 1) // table head is 0, to remove we add one to the table index and remove that row
 }
 
 function addBookToTable() {
@@ -40,11 +40,25 @@ function addBookToTable() {
     row.setAttribute("library-index", arrayIndex)
     for (let i = 0; i < 5; i++) {
         const cell = row.insertCell(i);
-        if (i < 4) {
+        if (i === 3) {
+            cell.innerHTML = `<button onClick="changeReadStatus(this.value)" class="toggle" value="${arrayIndex}">${element[Object.keys(element)[i]]}</button>
+            </label>`
+        } else if (i < 4) {
             cell.innerHTML = element[Object.keys(element)[i]]
         } else {
             cell.innerHTML = `<button value=${arrayIndex} onClick="removeBook(this.value)">Delete</button>`
         }
+    }
+}
+
+function changeReadStatus(bookIndex) {
+    const book = myLibrary[parseInt(bookIndex)]
+    if(book.read === true){
+        console.log("true")
+        book.read = false
+    } else {
+        console.log("false")
+        book.read = true
     }
 
 }
