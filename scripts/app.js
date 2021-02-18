@@ -29,7 +29,7 @@ function addBookToTable() {
         if (i < 4) {
             cell.innerHTML = element[Object.keys(element)[i]]
         } else {
-            cell.innerHTML = "<button>Delete</button>"
+            cell.innerHTML = `<button onClick="console.log('hello world')">Delete</button>`
         }
     }
 
