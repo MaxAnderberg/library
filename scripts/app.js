@@ -22,12 +22,17 @@ function addBookToTable() {
     const element = myLibrary[myLibrary.length - 1]
     arrayIndex = myLibrary.indexOf(myLibrary[myLibrary.length - 1])
     let row = table.insertRow(-1) // place each book last in table
-    row.setAttribute("libraryIndex",arrayIndex)
-    // console.log(element)
-    for (let i = 0; i < 4; i++) {
+
+    row.setAttribute("libraryIndex", arrayIndex)
+    for (let i = 0; i < 5; i++) {
         const cell = row.insertCell(i);
-        cell.innerHTML = element[Object.keys(element)[i]]
+        if (i < 4) {
+            cell.innerHTML = element[Object.keys(element)[i]]
+        } else {
+            cell.innerHTML = "<button>Delete</button>"
+        }
     }
+
 }
 // play ground
 const book1 = Object.create(Book.prototype)
