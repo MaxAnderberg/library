@@ -17,8 +17,6 @@ function displayBooks() {
     return;
 }
 
-// need to add a removeBook function that removes the book from lib and table
-
 function removeBook(book){
     removeBookFromLibrary(book);
     removeBookFromTable(book);
