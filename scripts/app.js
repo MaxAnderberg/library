@@ -17,19 +17,35 @@ function displayBooks() {
     return;
 }
 
+// need to add a removeBook function that removes the book from lib and table
+
+function removeBook(book){
+    removeBookFromLibrary(book);
+    removeBookFromTable(book);
+}
+
+function removeBookFromLibrary(book){
+    myLibrary.splice(book, 1);
+}
+
+function removeBookFromTable(book){
+    let table = document.getElementById("book-table");
+    table.deleteRow(parseInt(book)+1) // table head is 0, to remove we add one to the table index and remove that row
+}
+
 function addBookToTable() {
     let table = document.getElementById("book-table");
     const element = myLibrary[myLibrary.length - 1]
     arrayIndex = myLibrary.indexOf(myLibrary[myLibrary.length - 1])
     let row = table.insertRow(-1) // place each book last in table
 
-    row.setAttribute("libraryIndex", arrayIndex)
+    row.setAttribute("library-index", arrayIndex)
     for (let i = 0; i < 5; i++) {
         const cell = row.insertCell(i);
         if (i < 4) {
             cell.innerHTML = element[Object.keys(element)[i]]
         } else {
-            cell.innerHTML = `<button onClick="console.log('hello world')">Delete</button>`
+            cell.innerHTML = `<button value=${arrayIndex} onClick="removeBook(this.value)">Delete</button>`
         }
     }
 
