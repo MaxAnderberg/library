@@ -3,32 +3,30 @@ let myLibrary = [];
 
 // the book constructor
 function Book() {
-  this.title = title
-  this.author = author
-  this.pages = pages;
-  this.read = read
+    this.title = title
+    this.author = author
+    this.pages = pages;
+    this.read = read
 }
 
 function addBookToLibrary(book) {
-  myLibrary.push(book)
+    myLibrary.push(book)
 }
 
-function displayBooks(){
+function displayBooks() {
     return;
 }
 
-function addBookToTable(){
+function addBookToTable() {
     let table = document.getElementById("book-table");
-    // myLibrary.forEach(element => {
-        const element = myLibrary[myLibrary.length - 1]
-        console.log(element)
-        let row = table.insertRow(-1) // place each book last in table
-        // console.log(element)
-        for (let i = 0; i < 4; i++) {
-            const cell = row.insertCell(i);
-            cell.innerHTML = element[Object.keys(element)[i]]
-        }
-    // });
+    const element = myLibrary[myLibrary.length - 1]
+    console.log(element)
+    let row = table.insertRow(-1) // place each book last in table
+    // console.log(element)
+    for (let i = 0; i < 4; i++) {
+        const cell = row.insertCell(i);
+        cell.innerHTML = element[Object.keys(element)[i]]
+    }
 }
 // play ground
 const book1 = Object.create(Book.prototype)
@@ -49,7 +47,7 @@ addBookToLibrary(book2)
 addBookToTable();
 
 
-function createBook(){
+function createBook() {
     const book = Object.create(Book.prototype)
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
