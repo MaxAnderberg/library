@@ -2,6 +2,10 @@ body{
     background-color: #9C6868;
 }
 
+td{
+    border: 1px solid white;
+}
+
 .td-button{
     width: 80px;
     height: 40px;
@@ -43,9 +47,9 @@ label{
     width: 80%;
 }
 
-#book-table td, #book-table th {
+#book-table th {
     border: 1px solid #ddd;
-    padding: 8px;
+    /* padding: 8px; */
   }
 
 
