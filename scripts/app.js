@@ -100,7 +100,7 @@ function createBook() {
     book.title = document.getElementById("title").value;
     book.author = document.getElementById("author").value;
     book.pages = document.getElementById("pages").value;
-    book.read = document.getElementById("read").value;
+    book.read = document.getElementById("read").checked;
     addBookToLibrary(book);
     addBookToTable();
     document.getElementById("book-form").reset(); // resets the form with default placehold text
