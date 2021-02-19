@@ -11,6 +11,7 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book)
+    window.localStorage.setItem( "lol",myLibrary)
 }
 
 // remove the selected book
@@ -42,6 +43,7 @@ function addBookToTable() {
         if (i === 3) {
             cell.innerHTML = `<button class="read-t-f" class="toggle" value="${arrayIndex}">${element[Object.keys(element)[i]]}</button>`
             hello();
+            cell.classList.add("td-button")
         } else if (i < 4) {
             cell.innerHTML = element[Object.keys(element)[i]]
         } else {
@@ -91,17 +93,14 @@ addBookToLibrary(book2)
 addBookToTable();
 console.log(myLibrary)
 
+// creates a book using the input fields in the web app 
 function createBook() {
-    const book = Object.create(Book.prototype)
-    const title = document.getElementById("title").value;
-    const author = document.getElementById("author").value;
-    const pages = document.getElementById("pages").value;
-    const read = document.getElementById("read").value;
-    book.title = title;
-    book.author = author;
-    book.pages = pages;
-    book.read = read;
-    console.log(title, author, pages, read)
+    const book = Object.create(Book.prototype) // create a new book instance prototype
+    // assign values from the input fields
+    book.title = document.getElementById("title").value;
+    book.author = document.getElementById("author").value;
+    book.pages = document.getElementById("pages").value;
+    book.read = document.getElementById("read").value;
     addBookToLibrary(book);
     addBookToTable();
     document.getElementById("book-form").reset(); // resets the form with default placehold text
