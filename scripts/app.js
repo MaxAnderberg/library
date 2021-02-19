@@ -2,7 +2,7 @@
 let myLibrary = [];
 
 // the book constructor
-function Book() {
+function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages;
@@ -61,7 +61,8 @@ function hello() {
 function changeReadStatus() {
     const bookIndex = this.value;
     const book = myLibrary[parseInt(bookIndex)]
-    if(book.read === true){
+    // if the read status is true change to false and update button text, else change to true and update button text
+    if(book.read === true){ 
         book.read = false
         this.innerText = book.read;
     } else {
@@ -70,7 +71,8 @@ function changeReadStatus() {
     }
 }
 
-// play ground
+
+// create some basic books for the table
 const book1 = Object.create(Book.prototype)
 book1.title = "Title of the Tree"
 book1.author = "Max"
@@ -87,7 +89,7 @@ addBookToLibrary(book1)
 addBookToTable();
 addBookToLibrary(book2)
 addBookToTable();
-
+console.log(myLibrary)
 
 function createBook() {
     const book = Object.create(Book.prototype)
