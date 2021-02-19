@@ -92,19 +92,15 @@ function setLocalStorage(books) {
 
 function loadLocalStorage() {
     if (localStorage.bookArray) {
-    
-        console.log("in the if")
         myLibrary = JSON.parse(localStorage.getItem("bookArray"))
-        console.log(myLibrary)
         addBooksToTableFromMemory();
     } else {
-        startingTable();
+        loadStartingTable();
     }
 }
 
 // create some basic books for the table
-
-function startingTable() {
+function loadStartingTable() {
     const book1 = Object.create(Book.prototype)
     book1.title = "Title of the Tree"
     book1.author = "Max"
