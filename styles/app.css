@@ -41,8 +41,6 @@ label{
 #book-table{
     border-collapse: collapse; /* remove the margin around each border */ 
     width: 80%;
-    /* table-layout:fixed; */
-
 }
 
 #book-table td, #book-table th {
