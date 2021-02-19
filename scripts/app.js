@@ -40,8 +40,8 @@ function addBookToTable() {
     for (let i = 0; i < 5; i++) {
         const cell = row.insertCell(i);
         if (i === 3) {
-            cell.innerHTML = `<button onClick="changeReadStatus(this.value)" class="toggle" value="${arrayIndex}">${element[Object.keys(element)[i]]}</button>
-            </label>`
+            cell.innerHTML = `<button class="read-t-f" class="toggle" value="${arrayIndex}">${element[Object.keys(element)[i]]}</button>`
+            hello();
         } else if (i < 4) {
             cell.innerHTML = element[Object.keys(element)[i]]
         } else {
@@ -49,18 +49,27 @@ function addBookToTable() {
         }
     }
 }
+
+function hello() {
+    // get all the cells
+    let trueFalseCells = document.querySelectorAll(`.read-t-f`)
+    // iterate over all the cells and add an eventlistener
+    trueFalseCells.forEach(element => element.addEventListener("click", changeReadStatus));
+}
+
 // change the read status from true to false
-function changeReadStatus(bookIndex) {
+function changeReadStatus() {
+    const bookIndex = this.value;
     const book = myLibrary[parseInt(bookIndex)]
     if(book.read === true){
-        console.log("true")
         book.read = false
+        this.innerText = book.read;
     } else {
-        console.log("false")
         book.read = true
+        this.innerText = book.read;
     }
-
 }
+
 // play ground
 const book1 = Object.create(Book.prototype)
 book1.title = "Title of the Tree"
