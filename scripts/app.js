@@ -64,7 +64,7 @@ function changeReadStatus() {
     const bookIndex = this.value;
     const book = myLibrary[parseInt(bookIndex)]
     // if the read status is true change to false and update button text, else change to true and update button text
-    if(book.read === true){ 
+    if (book.read === true) {
         book.read = false
         this.innerText = book.read;
     } else {
@@ -72,26 +72,6 @@ function changeReadStatus() {
         this.innerText = book.read;
     }
 }
-
-
-// create some basic books for the table
-const book1 = Object.create(Book.prototype)
-book1.title = "Title of the Tree"
-book1.author = "Max"
-book1.pages = 132
-book1.read = true
-
-const book2 = Object.create(Book.prototype)
-book2.title = "The Three"
-book2.author = "Sam"
-book2.pages = 500
-book2.read = false
-
-addBookToLibrary(book1)
-addBookToTable();
-addBookToLibrary(book2)
-addBookToTable();
-console.log(myLibrary)
 
 // creates a book using the input fields in the web app 
 function createBook() {
@@ -106,23 +86,61 @@ function createBook() {
     document.getElementById("book-form").reset(); // resets the form with default placehold text
 }
 
-function setLocalStorage(books){
-    localStorage.setItem("books", books)
+function setLocalStorage(books) {
+    localStorage.setItem("bookArray", JSON.stringify(books))
 }
 
-function loadLocalStorage(){
-    if(localStorage.books){
-        const tmpLibrary = localStorage.getItem("books")
-        console.log(tmpLibrary)
+function loadLocalStorage() {
+    if (localStorage.bookArray) {
+    
+        console.log("in the if")
+        myLibrary = JSON.parse(localStorage.getItem("bookArray"))
+        console.log(myLibrary)
+        addBooksToTableFromMemory();
     } else {
-        console.log("hello")
+        startingTable();
     }
 }
 
-function resetTable(){
-    let table = document.getElementById("book-table");
-    const originalHMTL = table.innerHTML 
-    table.innerHTML = originalHMTL;
+// create some basic books for the table
+
+function startingTable() {
+    const book1 = Object.create(Book.prototype)
+    book1.title = "Title of the Tree"
+    book1.author = "Max"
+    book1.pages = 132
+    book1.read = true
+
+    const book2 = Object.create(Book.prototype)
+    book2.title = "The Three"
+    book2.author = "Sam"
+    book2.pages = 500
+    book2.read = false
+    addBookToLibrary(book1)
+    addBookToLibrary(book2)
+    addBooksToTableFromMemory()
 }
-resetTable()
+
+function addBooksToTableFromMemory() {
+    myLibrary.forEach(element => {
+        let table = document.getElementById("book-table");
+        let row = table.insertRow(-1) // place each book last in table
+        arrayIndex = myLibrary.indexOf(element) // get the index of the book in the array
+
+        row.setAttribute("library-index", arrayIndex)
+        for (let i = 0; i < 5; i++) {
+            const cell = row.insertCell(i);
+            if (i === 3) {
+                cell.innerHTML = `<button class="read-t-f" class="toggle" value="${arrayIndex}">${element[Object.keys(element)[i]]}</button>`
+                hello();
+                cell.classList.add("td-button")
+            } else if (i < 4) {
+                cell.innerHTML = element[Object.keys(element)[i]]
+            } else {
+                cell.innerHTML = `<button value=${arrayIndex} onClick="removeBook(this.value)">Delete</button>`
+            }
+        }
+    })
+}
+
 loadLocalStorage();
