@@ -119,4 +119,10 @@ function loadLocalStorage(){
     }
 }
 
+function resetTable(){
+    let table = document.getElementById("book-table");
+    const originalHMTL = table.innerHTML 
+    table.innerHTML = originalHMTL;
+}
+resetTable()
 loadLocalStorage();
