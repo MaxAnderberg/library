@@ -13,19 +13,18 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
 }
 
-function displayBooks() {
-    return;
-}
-
+// remove the selected book
 function removeBook(book) {
     removeBookFromLibrary(book);
     removeBookFromTable(book);
 }
 
+// removes the book from the array
 function removeBookFromLibrary(book) {
     myLibrary.splice(book, 1);
 }
 
+// removes the book from the table
 function removeBookFromTable(book) {
     let table = document.getElementById("book-table");
     table.deleteRow(parseInt(book) + 1) // table head is 0, to remove we add one to the table index and remove that row
@@ -33,8 +32,8 @@ function removeBookFromTable(book) {
 
 function addBookToTable() {
     let table = document.getElementById("book-table");
-    const element = myLibrary[myLibrary.length - 1]
-    arrayIndex = myLibrary.indexOf(myLibrary[myLibrary.length - 1])
+    const element = myLibrary[myLibrary.length - 1] // get the last book
+    arrayIndex = myLibrary.indexOf(myLibrary[myLibrary.length - 1]) // get the index of the book in the array 
     let row = table.insertRow(-1) // place each book last in table
 
     row.setAttribute("library-index", arrayIndex)
@@ -50,7 +49,7 @@ function addBookToTable() {
         }
     }
 }
-
+// change the read status from true to false
 function changeReadStatus(bookIndex) {
     const book = myLibrary[parseInt(bookIndex)]
     if(book.read === true){
