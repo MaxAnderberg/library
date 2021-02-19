@@ -2,7 +2,7 @@
 let myLibrary = [];
 
 // the book constructor
-function Book(title, author, pages, read) {
+function Book() {
     this.title = title
     this.author = author
     this.pages = pages;
@@ -10,8 +10,8 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(book) {
-    myLibrary.push(book)
-    window.localStorage.setItem( "lol",myLibrary)
+    myLibrary.push(book);
+    setLocalStorage(myLibrary)
 }
 
 // remove the selected book
@@ -112,8 +112,11 @@ function setLocalStorage(books){
 
 function loadLocalStorage(){
     if(localStorage.books){
-        myLibrary = localStorage.getItem("books")
+        const tmpLibrary = localStorage.getItem("books")
+        console.log(tmpLibrary)
     } else {
         console.log("hello")
     }
 }
+
+loadLocalStorage();
