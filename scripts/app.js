@@ -105,3 +105,15 @@ function createBook() {
     addBookToTable();
     document.getElementById("book-form").reset(); // resets the form with default placehold text
 }
+
+function setLocalStorage(books){
+    localStorage.setItem("books", books)
+}
+
+function loadLocalStorage(){
+    if(localStorage.books){
+        myLibrary = localStorage.getItem("books")
+    } else {
+        console.log("hello")
+    }
+}
