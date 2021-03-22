@@ -1,13 +1,7 @@
+
+
 // library, holds all the books
 let myLibrary = [];
-
-// the book constructor
-function Book() {
-    this.title = title
-    this.author = author
-    this.pages = pages;
-    this.read = read
-}
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -75,7 +69,7 @@ function changeReadStatus() {
 
 // creates a book using the input fields in the web app 
 function createBook() {
-    const book = Object.create(Book.prototype) // create a new book instance prototype
+    const book = new Book() // create a new book instance prototype
     // assign values from the input fields
     book.title = document.getElementById("title").value;
     book.author = document.getElementById("author").value;
@@ -99,22 +93,26 @@ function loadLocalStorage() {
     }
 }
 
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+}
+
 // create some basic books for the table
 function loadStartingTable() {
-    const book1 = Object.create(Book.prototype)
-    book1.title = "Title of the Tree"
-    book1.author = "Max"
-    book1.pages = 132
-    book1.read = true
+    let book1 = new Book("Title of the tree", "Stella Argent", 132, true);
+    let book2 = new Book("The three", "Sam the wise", 500, true);
+    let book3 = new Book("Broken Glass", "Alain Mabanckou", 487, false);
 
-    const book2 = Object.create(Book.prototype)
-    book2.title = "The Three"
-    book2.author = "Sam"
-    book2.pages = 500
-    book2.read = false
     addBookToLibrary(book1)
     addBookToLibrary(book2)
+    addBookToLibrary(book3)
     addBooksToTableFromMemory()
+
 }
 
 function addBooksToTableFromMemory() {
